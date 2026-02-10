@@ -5,7 +5,7 @@ def menu_principal():
         print("1. Gestión de productos")
         print("2. Ventas")
         print("3. Salir")
-
+        print("-" * 25)
         opcion = input("Seleccione una opción: ")
 
         if opcion == "1":
