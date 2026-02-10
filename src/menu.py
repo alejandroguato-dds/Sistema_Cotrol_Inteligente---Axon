@@ -7,6 +7,7 @@ def menu_principal():
         print("3. Salir")
         print("-" * 25)
         opcion = input("Seleccione una opción: ")
+        print("-" * 25)
 
         if opcion == "1":
             print("Módulo de productos (en construcción)")
