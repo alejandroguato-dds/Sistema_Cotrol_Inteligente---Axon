@@ -1,6 +1,7 @@
 def menu_principal():
     while True:
         print("\n------- AXON -------")
+        print("-" * 25)
         print("1. Gestión de productos")
         print("2. Ventas")
         print("3. Salir")
