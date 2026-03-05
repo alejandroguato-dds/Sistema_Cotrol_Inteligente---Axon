@@ -1,7 +1,8 @@
 from menu import menu_principal 
-
+from login import login
 def main():
-    menu_principal()
+    if login:
+        menu_principal()
     
 if __name__=="__main__":
     main()
