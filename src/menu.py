@@ -1,4 +1,4 @@
-def menu_principal():
+def menu_principal_usuario():
     while True:
         print("\n------- AXON -------")
         print("-" * 25)
