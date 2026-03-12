@@ -4,3 +4,4 @@ sofia,28,colaborador
 bryang,06,colaborador
 luzs,12,colaborador
 beber,8,colaborador
+nicolay,20,colaborador

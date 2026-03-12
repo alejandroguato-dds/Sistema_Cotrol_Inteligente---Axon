@@ -1,6 +1,5 @@
 
 import getpass
-from menu import menu_principal_usuario
 from validaciones import pedir_numero,pedir_texto
 
 # Login apartado solo para el inicio del admin
@@ -23,9 +22,7 @@ def login_admin():
                
                if user == u and password == c and rol == "admin":
                    print("\nLogin exitoso")
-                   
-                   panel_admin()
-                   return
+                   return "admin"
         
        print("\nCredenciales incorrectas--")
 
@@ -42,49 +39,17 @@ def login_usuario():
             continue
         
         with open("admin/usuarios.txt", "r") as archivo:
+            
             for linea in archivo:
                 
                 u, c, rol = linea.strip().split(",")
                 
                 if user == u and password == c and rol == "colaborador":
                     print("Login exitoso")
-                    menu_principal_usuario()
-                    return
+                    return "colaborador"
+                
         print("\nCredenciales incorrectas")
     
-
-def agregar_colaboradores():
-    
-    user = pedir_texto("Nuevo usuario: ")
-    password = input("Contraseña: ")
-    rol = "colaborador"
-    
-    while True:
-        if password.strip() == "":
-            print("No se puede dejar al colaborador sin contraseña asignada")
-        else:
-            break
-        
-    with open("admin/usuarios.txt", "a") as archivo:
-        archivo.write(f"{user},{password},{rol}\n")
-    
-    print("\nUsuario agregado correctamente")        
-
-
-def panel_admin():
-    
-    while True:
-        print("\n----Panel Admin-----")
-        print("1. Agregar colaborador")
-        print("2. Salir")
-        
-        opcion = pedir_numero("Selecciona una opción: ")
-        
-        if opcion == 1:
-            agregar_colaboradores()
-        elif opcion == 2:
-            break
-        
 
 def login():
     
@@ -93,18 +58,20 @@ def login():
         print("\n------LOGIN AXON-------")
         print("1. Administrador")
         print("2. Usuario")
+        print("3. Salir del programa")
         
-        opcion = pedir_numero("Ingrese una opción: ")
+        opcion = pedir_numero("\nIngrese una opción: ")
         
         if opcion == 1:
-            login_admin()
+            return login_admin()
             
         
         elif opcion == 2:
-            login_usuario()
-            
+            return login_usuario()
+        
+        elif opcion == 3:
+            return "salir"
         
         else:
             print("Opción no valida")    
 
-login()
